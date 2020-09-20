@@ -1,0 +1,11 @@
+(defun flips ()
+    (let ((coin (random 2 (make-random-state t))))
+    (if (= coin 0) "HEADS" "TAILS")))
+
+(defvar *state* (flips))
+(defun play ()
+    (let ((choice (read)))
+    (if (string= choice *state*)
+        (format t "You win, It was ~A and you chose ~A. ~%" *state* choice)
+        (format t "You lose, It was ~A and you chose ~A. ~%" *state* choice ))))
+(play)
