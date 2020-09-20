@@ -1,0 +1,16 @@
+(defun computer-guess (range)
+    (let ((tmp (random range (make-random-state t))))
+    (if (= tmp 0) (+ tmp 1) tmp)))
+
+(format t "Provide the max number to generate: ")
+(defvar *rng* (read))
+(defvar *computer-guess* (computer-guess *rng*))
+(format t "Computer has chosen a number between 0 and ~A ~%" *rng*)
+(defun play ()
+    (format t "> ")
+    (let ((guess (read)))
+    (if (= guess *computer-guess*)
+    (format t "You win, the computer chose ~A." *computer-guess*)
+    (format t "You lose, the computer chose ~A." *computer-guess*))))
+
+(play)
